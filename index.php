@@ -1,3 +1,8 @@
+<?php
+require_once 'dbcredentials.php';
+require_once 'dbconnection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +19,13 @@
 </head>
 <body>
 <main>
-    <div class="container-lg-fluid container-md container-sm container-xs mt-xs-5 mt-sm-5 mt-sm-5 mt-md-5">
+
+    <div class="container-lg-fluid container-md container-sm container-xs mt-xs-5 mt-sm-5 mt-sm-5 mt-md-5 my-5">
       <div class="row mainPage">
         <div class="col col-md-60 col-xs-4">
           <div class="contents">
             <h1>List of Clients</h1>
-            <button type="button" class="btn btn-primary">Add new client</button>
+            <button type="button" href="create.php" class="btn btn-primary">Add new client</button>
           </div>
         </div>
       </div>
