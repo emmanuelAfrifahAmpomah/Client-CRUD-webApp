@@ -1,7 +1,3 @@
-<?php
-require_once 'dbcredentials.php';
-require_once 'dbconnection.php';
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,15 +13,34 @@ require_once 'dbconnection.php';
 
     <title>Project CRUD Application</title>
 </head>
-<body>
+<body class="bg-secondary">
 <main>
 
     <div class="container-lg-fluid container-md container-sm container-xs mt-xs-5 mt-sm-5 mt-sm-5 mt-md-5 my-5">
       <div class="row mainPage">
         <div class="col col-md-60 col-xs-4">
           <div class="contents">
-            <h1>List of Clients</h1>
-            <button type="button" href="create.php" class="btn btn-primary">Add new client</button>
+            <h1 class="text-center text-light center">List of Clients</h1>
+            <button type="button" href="create.php" class="btn btn-primary mb-3">Add new client</button>
+            <table class="table table-warning table-hover table-striped">
+  <thead class="table-danger">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">Created_At</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+require_once 'backend/dbcredentials.php';
+require_once 'backend/dbconnection.php';
+?>
+  </tbody>
+</table>
           </div>
         </div>
       </div>
