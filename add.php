@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
                   <button id="submit" type="submit" class="btn btn-primary mb-1" name="submit">Submit</button>
                </div>
                <div class="col-sm-3 d-grid">
-                 <a class="btn btn-danger mb-1" href="" role="cancel">cancel</a>
+                 <a class="btn btn-danger mb-1" href="index.php" role="cancel">cancel</a>
                </div>
             </div>
             </form>

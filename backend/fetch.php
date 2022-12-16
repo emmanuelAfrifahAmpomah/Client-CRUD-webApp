@@ -19,7 +19,7 @@ while($row = $result->fetch_array()) {
     <td>$row[created_at]</td>
     <td>
       <a class='btn btn-md btn-sm btn-primary' href='edit.php?id=$row[id]'>Edit</a>
-      <a class='btn btn-md btn-sm btn-danger' href='delete.php?id=$row[id]'>Delete</a>
+      <a class='btn btn-md btn-sm btn-danger' id='deleteButton' href='delete.php?id=$row[id]'>Delete</a>
     </td>
   </tr>
   ";
