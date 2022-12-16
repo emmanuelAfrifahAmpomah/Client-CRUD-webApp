@@ -18,7 +18,7 @@
       <div class="row">
         <!-- <div class="col col-md-60 col-xs-4">
           <div class="contents"> -->
-            <h1 class="text-center text-light center">List of Clients</h1>
+            <h1 class="text-center center">List of Clients</h1>
             <div class="col-12 my-3 table-responsive table-responsive-md table-responsive-sm table-responsive-xs">
             <a href="add.php" class="btn btn-primary mb-3 col-sm-3 d-grid">Add new client</a>
             <div class="table-responsive table-responsive-lg table-responsive-xl table-responsive-xxl table-responsive-md table-responsive-sm table-responsive-xs">
