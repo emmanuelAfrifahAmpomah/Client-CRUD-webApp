@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
         exit;
     }
     
-    $id=$_GET["id"]; //use GET method for id and asign it to an id variable
+    $id = htmlspecialchars($_GET["id"]); //use GET method for id and asign it to an id variable
 
     // read the row of selected client from database table
     $sql = "SELECT * FROM clients_data WHERE id = $id";
@@ -35,20 +35,20 @@ if ($_SERVER['REQUEST_METHOD']=='GET') {
         exit;
     }
     // if the data can be read, show the data of the client by storing the data retrieved in the respective variables
-    $name=$row["name"];
-    $email=$row["email"];
-    $phone=$row["phone"];
-    $address=$row["address"];
+    $name = $row["name"];
+    $email = $row["email"];
+    $phone = $row["phone"];
+    $address = $row["address"];
 }
 
 // If POST method, then update the data of the client
 else {
     // read and store the data of the form into respective variables
-    $id=$_POST["id"];
-    $name=$_POST["name"];
-    $email=$_POST["email"];
-    $phone=$_POST["phone"];
-    $address=$_POST["address"];
+    $id = htmlspecialchars($_POST["id"]);
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $phone = htmlspecialchars($_POST["phone"]);
+    $address = htmlspecialchars($_POST["address"]);
 
     // checking for empty fields using a do while loop
     do {
@@ -109,19 +109,19 @@ else {
                 <input type="hidden" name="id" value="<?php echo $id?>">
              <div class="form-group mb-3">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" placeholder="Full name" name="name" value="<?=$name?>">
+                <input type="text" class="form-control" placeholder="Full name" name="name" value="<?=htmlspecialchars($name)?>">
              </div>
              <div class="form-group mb-3">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" placeholder="@example.com" name="email" value="<?=$email?>">
+                <input type="text" class="form-control" placeholder="@example.com" name="email" value="<?=htmlspecialchars($email)?>">
              </div>
              <div class="form-group mb-3">
                <label for="phone">Phone</label>
-               <input type="text" class="form-control" placeholder="" name="phone" value="<?=$phone?>">
+               <input type="text" class="form-control" placeholder="" name="phone" value="<?=htmlspecialchars($phone)?>">
              </div>
              <div class="form-group mb-3">
               <label for="address">Address</label>
-              <input type="text" class="form-control" placeholder="" name="address" value="<?=$address?>">
+              <input type="text" class="form-control" placeholder="" name="address" value="<?=htmlspecialchars($address)?>">
              </div>
              <?php
              if(!empty($successMessage)) {

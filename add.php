@@ -6,6 +6,7 @@ $name="";
 $email="";
 $phone="";
 $address="";
+// re-written as: $name = $email = $phone = $address ='';
 
 // initialize the error message variable
 $errorMessage = "";
@@ -14,14 +15,20 @@ $errorMessage = "";
 $successMessage="";
 
 if ($_SERVER['REQUEST_METHOD']=='POST') {
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $phone=$_POST['phone'];
-    $address=$_POST['address'];
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $address = htmlspecialchars($_POST['address']);
+
+
+
+        // checking for valid email address
+        // $emailValid = (filter_var($email, FILTER_VALIDATE_EMAIL))
+
 
     //checking whether there is no empty field. We 'break' from the loop if there's any error and show an error message
     do {
-        if (empty($name)||empty($email)||empty($phone)||empty($address)) {
+        if (empty($name)||empty($email) && $emailValid ||empty($phone)||empty($address)) {
             $errorMessage = 'All fields are required';
             break;
         }
@@ -82,19 +89,19 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
             <form method="post">
              <div class="form-group mb-3">
                 <h3><label for="name">Name</label></h3>
-                <input type="text" class="form-control" placeholder="Full name" name="name" value="<?=$name?>">
+                <input type="text" class="form-control" placeholder="Full name" name="name" value="<?=htmlspecialchars($name)?>">
              </div>
              <div class="form-group mb-3">
              <h3><label for="email">Email</label></h3>
-                <input type="text" class="form-control" placeholder="@example.com" name="email" value="<?=$email?>">
+                <input type="text" class="form-control" placeholder="@example.com" name="email" value="<?=htmlspecialchars($email)?>">
              </div>
              <div class="form-group mb-3">
              <h3><label for="phone">Phone</label></h3>
-               <input type="text" class="form-control" placeholder="" name="phone" value="<?=$phone?>">
+               <input type="text" class="form-control" placeholder="" name="phone" value="<?=htmlspecialchars($phone)?>">
              </div>
              <div class="form-group mb-5">
              <h3><label for="address">Address</label></h3>
-              <input type="text" class="form-control" placeholder="" name="address" value="<?=$address?>">
+              <input type="text" class="form-control" placeholder="" name="address" value="<?=htmlspecialchars($address)?>">
              </div>
              <?php
              if(!empty($successMessage)) {
